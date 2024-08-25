@@ -1,16 +1,20 @@
-[
-  {
-    "text": "Guide",
-    "link": "/guide/",
-    "activeMatch": "/guide/"
-  },
-  {
-    "text": "Hello World",
-    "link": "/hello/",
-    "activeMatch": "/hello/"
-  },
-  {
-    "text": "API",
-    "link": "https://rspress.dev/api/index.html"
-  }
+[{
+        "text": "Guide",
+        "link": "/guide/",
+        "activeMatch": "/guide/"
+    },
+    {
+        "text": "Hello World",
+        "link": "/hello/",
+        "activeMatch": "/hello/"
+    },
+    {
+        "text": "工具导航",
+        "link": "/nav/",
+        "activeMatch": "/nav/"
+    },
+    {
+        "text": "API",
+        "link": "https://rspress.dev/api/index.html"
+    }
 ]
