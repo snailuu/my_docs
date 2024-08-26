@@ -4,9 +4,9 @@
         "activeMatch": "/guide/"
     },
     {
-        "text": "Hello World",
-        "link": "/hello/",
-        "activeMatch": "/hello/"
+        "text": "开发日常",
+        "link": "/daily/",
+        "activeMatch": "/daily/"
     },
     {
         "text": "工具导航",
