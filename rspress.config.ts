@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { defineConfig } from 'rspress/config';
-
+import katex from 'rspress-plugin-katex';
 export default defineConfig({
 	root: path.join(__dirname, 'docs'),
 	title: '文档唠唠叨叨',
@@ -16,4 +16,5 @@ export default defineConfig({
 		],
 	},
 	base: '/my_docs',
+	plugins: [katex()],
 });
