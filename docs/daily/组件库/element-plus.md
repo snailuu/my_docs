@@ -141,3 +141,67 @@ const rules = {
 </script>
 ```
 
+
+
+
+
+## 二次封装组件暴露子组件方法
+
+```html title=Myinput.vue
+<template>
+  <div>myinput</div>
+  <el-input ref="inputRef" v-bind="$attrs">
+    <template v-for="(_, slot) in $slots" :key="slot" #[slot]="slotProps">
+      <slot :name="slot" v-bind="slotProps"></slot>
+    </template>
+  </el-input>
+</template>
+<script setup lang='ts'>
+
+
+const inputRef = ref()
+
+defineExpose(
+  new Proxy(
+    {},
+    {
+      get(target, key) {
+        return inputRef.value?.[key]
+      },
+      has(target, key) {
+        return key in inputRef.value
+      }
+    }
+  )
+)
+</script>
+<style scoped lang='less'></style>
+```
+
+```html title=App.vue
+<template>
+  <el-button type="primary" @click="focus">聚焦</el-button>
+  <MyInput v-model="msg" ref="myInputRef">
+    <template #append>
+      <el-button>前置</el-button>
+    </template>
+    <template #prepend>
+      <el-button>后置</el-button>
+    </template>
+  </MyInput>
+  {{ msg }}
+</template>
+<script setup lang='ts'>
+import MyInput from '@/components/MyInput.vue'
+
+const msg = ref('111')
+
+const myInputRef = ref()
+
+const focus = () => {
+  myInputRef.value.focus()
+}
+</script>
+<style scoped lang='less'></style>
+```
+
